@@ -23,6 +23,18 @@ public class GuGudanServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8"); 
         resp.setContentType("text/html; charset=utf-8");
         
-        resp.getWriter().append("안녕하시오");
+        int dan = Integer.parseInt(req.getParameter("dan"));
+        resp.getWriter().append(String.format("<h1>구구단 %d단</h1>", dan));
+
+        for(int i=1; i<10; i++){
+            resp.getWriter().append(String.format("<div>%d * %d = %d", dan, i, dan * i));
+        }
+
+        /*for(int i=2; i<10; i++) {
+
+            for(int j=1; j<10; j++) {
+                resp.getWriter().append(String.format("<div>%d * %d = %d", i, j, i * j));
+            }
+        }*/
     }
 }
