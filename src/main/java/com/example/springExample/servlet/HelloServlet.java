@@ -1,4 +1,4 @@
-package com.example.springExample;
+package com.example.springExample.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
