@@ -2,6 +2,7 @@ package com.example.springExample.servlet;
 
 import com.example.springExample.Rq;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +25,19 @@ public class GuGudanServlet extends HttpServlet {
         int dan = rq.getIntParam("dan", 0);
         int limit = rq.getIntParam("limit", 0);
 
-        resp.getWriter().append(String.format("<h1>구구단 %d단</h1>", dan));
+        req.setAttribute("dan", dan);
+        req.setAttribute("limit", limit);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("gugudan2.jsp");
+        requestDispatcher.forward(req, resp);
+
+        /*resp.getWriter().append(String.format("<h1>구구단 %d단</h1>", dan));
 
         for(int i=1; i<limit; i++){
             resp.getWriter().append(String.format("<div>%d * %d = %d", dan, i, dan * i));
         }
 
-        /*for(int i=2; i<10; i++) {
+        for(int i=2; i<10; i++) {
 
             for(int j=1; j<10; j++) {
                 resp.getWriter().append(String.format("<div>%d * %d = %d", i, j, i * j));
