@@ -4,5 +4,18 @@
 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
 
+    <!-- 어노테이션 방식과 설정 방식 둘 중 하나만 사용해야 한다. -->
+    <!-- 서블릿 설정 -->
+    <servlet>
+        <servlet-name>appBasic</servlet-name>
+        <servlet-class>com.example.springExample.servlet2.TestServlet</servlet-class>
+    </servlet>
+
+    <!-- 서블릿 맵핑 -->
+    <servlet-mapping>
+        <servlet-name>appBasic</servlet-name>
+        <url-pattern>/jspTag/apple</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
